@@ -2,7 +2,7 @@ folder: bulls
 ## Animal genetics
 This is a scripts collection for daily working in the field of animal genetics. 
 ## Scripts
-*anim-check.py*
+*-anim-check.py*
 
 check animals from new list in the table with whole animals
 
