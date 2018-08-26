@@ -6,11 +6,11 @@ This is a scripts collection for daily working in the field of animal genetics.
 
 check animals from new list in the table with whole animals
 
->genotypesqual.py
+*genotypesqual.py*
 
 make statistic (SNP qual, sample qual, MAF, HWE) from FinalReport file
 
-KKcompare.py
+*KKcompare.py*
 
 ## Authors
 Kateryna Pantiukh
