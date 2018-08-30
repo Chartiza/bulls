@@ -12,6 +12,8 @@ make statistic (SNP qual, sample qual, MAF, HWE) from FinalReport file
 
 - *KKcompare.py*
 
+script for compare kinship calculated by king program (based on genotypes) and kinship2 package (based on pedigree data)
+
 ## Authors
 Kateryna Pantiukh
 ## License
