@@ -127,8 +127,8 @@ def newFR():
 			f.write(l)
 
 
-#common()
+common()
 finalreport = './'+frfilename + '/' + frfilename
-#king()
+king()
 stat()
 newFR()
