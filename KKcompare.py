@@ -108,17 +108,17 @@ def makeFR(list1, frfilename):
 
     fr['kinship'] = k2
     fr['king'] = k3
-    
+
     #calculate number good/bad pairs
     fr['kinship'].equals(fr['king'])
     fr['res'] = np.where(fr['kinship']!=fr['king'], 'False', 'True')
     fr.columns = ['anim1', 'anim2', 'kinshipVal', 'kingVal', 'kinship', 'king', 'result']
     fr.to_csv('./'+frfilename+'/DEGREE.csv', sep='\t', encoding='utf-8', index = False)
-    
+
     bd = fr.loc[fr['result'] == 'False']
     bd1 = bd[['anim1', 'anim2']].melt()
     bad = pd.DataFrame(bd1.value.value_counts())
-    
+
     gd = fr.loc[fr['result'] == 'True']
     gd1 = gd[['anim1', 'anim2']].melt()
     good = pd.DataFrame(gd1.value.value_counts())
@@ -130,7 +130,7 @@ def makeFR(list1, frfilename):
     r['tgroup']=np.where(r['group'] == 'notinfirst', 'NA', 'test')
     r['tgroup']=np.where((r['group'] != 'notinfirst') & (r['good'] == 0) & (r['bad'] == 0), 'NoData', r['tgroup'])
     r.to_csv('./'+frfilename+'_COMPARE_'+partia+'.csv', sep='\t', encoding='utf-8')
-    
+
     a = r['tgroup'].value_counts()
     print(a)
 
@@ -142,7 +142,7 @@ def makeFR(list1, frfilename):
     print(w)
     f = open('./'+frfilename+'_worst.csv', 'w')
     f.write(str(w))
-    f.close()   
+    f.close()
 
-makeFR('pattern/IlyaGtList-1.txt', frfilename)
+makeFR('temp/IlyaGtList-1.txt', frfilename)
 #king()
