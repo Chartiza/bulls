@@ -87,12 +87,15 @@ def stat():
 	p = 'SNP with HWEdiff > 0.15: ' + str(len(bhw.index)) + '\n'
 	f.write("".join(p))
 	#print bad samples to file
+	bsnp = pd.concat([bsr.SNP, bmf.SNP, bhw.SNP], axis = 0)
+	bsnp.to_csv('./'+frfilename + '/BadSNP.' + frfilename + '.csv', sep = '\t', index = None)
 	bcr.to_csv('./'+frfilename + '/BadSmpl.' + frfilename + '.csv', sep = '\t', index = None)
 
 def newFR():
 	smpl_to_cut=set()
+	snp_to_cut=set()	
 	#dirname='./'+frfilename+'/plink_'+frfilename+'/'
-	print ('Eeclude bad smpls >>> ')
+	print (' >>> Eeclude bad smpls')
 	#Read BedSMPLS.csv
 	for l in open('./'+frfilename + '/BadSmpl.' + frfilename + '.csv'):
 		data=l.rstrip().split('\t')
@@ -108,16 +111,24 @@ def newFR():
 		if data[1] not in smpl_to_cut:
 			#print (data)
 			f.write(l)
-	print ('Eeclude bad SNPs >>> ')
-	for l in open('./'+frfilename + '/BadSmpl.' + frfilename + '.csv'):
+	print (' >>> Eeclude bad SNPs')
+	for l in open('./'+frfilename + '/BadSNP.' + frfilename + '.csv'):
 		data=l.rstrip().split('\t')
-		smpl_to_cut.add(data[1])
-		print(data[1])
+		snp_to_cut.add(data[0])
+	#Read FinalReport
+	f = open(finalreport, 'r')
+	lines = f.readlines()
+	f.close()
+	f = open(finalreport, 'w')
+	for l in lines:
+		data=l.rstrip().split('\t')
+		if data[0] not in snp_to_cut:
+			#print (data)
+			f.write(l)
 
 
-
-common()
+#common()
 finalreport = './'+frfilename + '/' + frfilename
-king()
+#king()
 stat()
 newFR()
