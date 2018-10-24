@@ -4,7 +4,7 @@ This is a scripts collection for daily working in the field of animal genetics.
 ## Scripts
 - *anim-check.py*
 
-The script is designed to check animals from new list in the table with whole animals
+The script is designed to check animals from a new list in the table with whole animals.
 
 - *gtqualfltr.py*
 
@@ -12,11 +12,11 @@ The script is designed to make statistic (SNP qual, sample qual, MAF, HWE) from 
 
 - *KKcompare.py*
 
-The script is designed to compare kinship calculated by king program (based on genotypes) and kinship2 package (based on pedigree data)
+The script is designed to compare kinship calculated by king program (based on genotypes) and kinship2 package (based on pedigree data).
 
 - *rename_smpls.py*
 
-The script is designed to rename the samples in the file in accordance with the file of conformity.
+The script is designed to rename the samples in the FinalReport file in accordance with the file of conformity.
 
 ## Authors
 Kateryna Pantiukh
